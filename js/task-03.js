@@ -13,11 +13,11 @@ const images = [
   },
 ];
 const ulEl = document.querySelector(".gallery");
-
+let markup = "";
 for (const image of images) {
-  const markup = `<img
+  markup += `<img
   src=${image.url} height="600px"
   alt=${image.alt}>
 `;
-  ulEl.insertAdjacentHTML("beforeend", markup);
 }
+ulEl.insertAdjacentHTML("beforeend", markup);
