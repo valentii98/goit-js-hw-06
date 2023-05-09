@@ -6,10 +6,17 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
+
 const liEl = document.querySelector("#ingredients");
-for (const ingredient of ingredients) {
-  const list = document.createElement("li");
-  list.classList.add("item");
-  list.textContent = ingredient;
-  liEl.after(list);
+const liMarkup = [];
+
+function createIngredientsList(ingredients = []) {
+  ingredients.map((elem) => {
+    const item = document.createElement("li");
+    item.textContent = elem;
+    item.classList.add("item");
+    liMarkup.push(item);
+  });
+  liEl.append(...liMarkup);
 }
+createIngredientsList(ingredients);
